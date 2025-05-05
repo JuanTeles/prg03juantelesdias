@@ -35,6 +35,9 @@ public class ContadorPassos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         btnContar = new javax.swing.JButton();
+        lblValorInicio = new javax.swing.JLabel();
+        lblValorFim = new javax.swing.JLabel();
+        lblValorPasso = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,10 +60,20 @@ public class ContadorPassos extends javax.swing.JFrame {
 
         sldFim.setMaximum(20);
         sldFim.setValue(0);
+        sldFim.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                sldFimStateChanged(evt);
+            }
+        });
 
         sldPasso.setMaximum(20);
         sldPasso.setMinimum(1);
         sldPasso.setValue(1);
+        sldPasso.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                sldPassoStateChanged(evt);
+            }
+        });
 
         jScrollPane1.setPreferredSize(new java.awt.Dimension(150, 86));
 
@@ -78,6 +91,15 @@ public class ContadorPassos extends javax.swing.JFrame {
             }
         });
 
+        lblValorInicio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblValorInicio.setText("0");
+
+        lblValorFim.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblValorFim.setText("0");
+
+        lblValorPasso.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblValorPasso.setText("1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -88,11 +110,15 @@ public class ContadorPassos extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblTxtInicio)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(sldInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(sldInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblValorInicio))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblTxtFim)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(sldFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(sldFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblValorFim))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblTxtPasso)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -100,8 +126,11 @@ public class ContadorPassos extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(49, 49, 49)
                                 .addComponent(btnContar))
-                            .addComponent(sldPasso, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(sldPasso, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblValorPasso)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -112,19 +141,23 @@ public class ContadorPassos extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addComponent(sldInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(24, 24, 24)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(sldInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblValorInicio)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(lblTxtInicio)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(sldFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTxtFim))
+                            .addComponent(lblTxtFim)
+                            .addComponent(lblValorFim))
                         .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblTxtPasso)
-                            .addComponent(sldPasso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(sldPasso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblValorPasso))
                         .addGap(31, 31, 31)
                         .addComponent(btnContar)
                         .addGap(0, 207, Short.MAX_VALUE))
@@ -148,7 +181,11 @@ public class ContadorPassos extends javax.swing.JFrame {
         int count = inicio;
         String resultado = "";
 
+        /* caso o inicio seja maior que o fim, é realizado o incremento do 
+           passo até satisfazer a condição final do while, e caso o inicio
+           seja menor, é realizado um decremento */
         if (inicio <= fim) {
+            // percorre o loop armazenando na string os valores a serem impressos
             while (count <= fim) {
                 resultado += count + " \n";
                 count += passo;
@@ -159,13 +196,29 @@ public class ContadorPassos extends javax.swing.JFrame {
                 count -= passo;
             }
         }
-
+        
+        // imprime no jTextArea o(s) valor(es) a string final ja pronta
         jTextArea1.setText(resultado);
     }//GEN-LAST:event_btnContarActionPerformed
 
     private void sldInicioStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sldInicioStateChanged
         // TODO add your handling code here:
+        
+        // atualiza o valor do label de acordo com o slider (presente) 
+        lblValorInicio.setText("" + sldInicio.getValue());
     }//GEN-LAST:event_sldInicioStateChanged
+
+    private void sldFimStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sldFimStateChanged
+        // TODO add your handling code here:
+        // atualiza o valor do label de acordo com o slider (presente) 
+        lblValorFim.setText("" + sldFim.getValue());
+    }//GEN-LAST:event_sldFimStateChanged
+
+    private void sldPassoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sldPassoStateChanged
+        // TODO add your handling code here:
+        // atualiza o valor do label de acordo com o slider (presente) 
+        lblValorPasso.setText("" + sldPasso.getValue());
+    }//GEN-LAST:event_sldPassoStateChanged
 
     /**
      * @param args the command line arguments
@@ -209,6 +262,9 @@ public class ContadorPassos extends javax.swing.JFrame {
     private javax.swing.JLabel lblTxtFim;
     private javax.swing.JLabel lblTxtInicio;
     private javax.swing.JLabel lblTxtPasso;
+    private javax.swing.JLabel lblValorFim;
+    private javax.swing.JLabel lblValorInicio;
+    private javax.swing.JLabel lblValorPasso;
     private javax.swing.JSlider sldFim;
     private javax.swing.JSlider sldInicio;
     private javax.swing.JSlider sldPasso;
