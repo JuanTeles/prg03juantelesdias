@@ -35,7 +35,7 @@ public class GenioAdivinha extends javax.swing.JFrame {
         lblGenioImage = new javax.swing.JLabel();
         btnPalpita = new javax.swing.JButton();
         spnPalpite = new javax.swing.JSpinner();
-        jLabel3 = new javax.swing.JLabel();
+        lblTxtValor = new javax.swing.JLabel();
         lblFraseGenio = new javax.swing.JLabel();
         lblBalao = new javax.swing.JLabel();
 
@@ -58,9 +58,9 @@ public class GenioAdivinha extends javax.swing.JFrame {
         spnPalpite.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jPanel1.add(spnPalpite, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 73, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Valor");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
+        lblTxtValor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblTxtValor.setText("Valor");
+        jPanel1.add(lblTxtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
 
         lblFraseGenio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblFraseGenio.setText(".");
@@ -152,11 +152,11 @@ public class GenioAdivinha extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPalpita;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblBalao;
     private javax.swing.JLabel lblFraseGenio;
     private javax.swing.JLabel lblGenioImage;
+    private javax.swing.JLabel lblTxtValor;
     private javax.swing.JSpinner spnPalpite;
     // End of variables declaration//GEN-END:variables
 }
