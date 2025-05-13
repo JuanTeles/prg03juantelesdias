@@ -57,7 +57,7 @@ public class ContaBanco {
         return saldo;
     }
 
-    public void setSaldo(double saldo) {
+    private void setSaldo(double saldo) {
         this.saldo = saldo;
     }
 
@@ -110,8 +110,8 @@ public class ContaBanco {
         // verificação se a conta está aberta
         if(this.status == true){
             // só é possivel realizar saque se não houver saldo disponivel
-            if(getSaldo() > 0){
-                System.out.println("Infelizmente nao foi possível fechar a conta!!");
+            if(this.saldo > 0){
+                System.out.println("Infelizmente nao foi possivel fechar a conta!!");
                 System.out.printf("Ainda ha R$%.2f em conta", this.saldo);
             }
             else{
