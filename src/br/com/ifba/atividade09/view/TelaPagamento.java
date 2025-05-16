@@ -36,6 +36,7 @@ public class TelaPagamento extends javax.swing.JFrame {
         rbPagamentoPix = new javax.swing.JRadioButton();
         rbPagamentoCartao = new javax.swing.JRadioButton();
         rbPagamentoDinheiro = new javax.swing.JRadioButton();
+        lblSubtotal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,6 +76,9 @@ public class TelaPagamento extends javax.swing.JFrame {
             }
         });
 
+        lblSubtotal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblSubtotal.setText("Valor:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -82,6 +86,7 @@ public class TelaPagamento extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSubtotal)
                     .addComponent(btnImprimeRecibo)
                     .addComponent(spnValor, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -96,18 +101,20 @@ public class TelaPagamento extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(25, 25, 25)
+                .addComponent(lblSubtotal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(spnValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addGap(18, 18, 18)
                 .addComponent(lblFormaPagamento)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbPagamentoPix)
                     .addComponent(rbPagamentoCartao)
                     .addComponent(rbPagamentoDinheiro))
-                .addGap(39, 39, 39)
+                .addGap(18, 18, 18)
                 .addComponent(btnImprimeRecibo)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
@@ -215,6 +222,7 @@ public class TelaPagamento extends javax.swing.JFrame {
     private javax.swing.ButtonGroup bgFormaPagamento;
     private javax.swing.JButton btnImprimeRecibo;
     private javax.swing.JLabel lblFormaPagamento;
+    private javax.swing.JLabel lblSubtotal;
     private javax.swing.JRadioButton rbPagamentoCartao;
     private javax.swing.JRadioButton rbPagamentoDinheiro;
     private javax.swing.JRadioButton rbPagamentoPix;
